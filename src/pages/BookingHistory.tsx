@@ -30,7 +30,7 @@ const BookingHistory: React.FC = () => {
       ) : (
         <Grid container spacing={3}>
           {bookings.map(booking => (
-            <Grid item xs={12} sm={6} md={4} key={booking.id}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={booking.id}>
               <Card>
                 {booking.type === 'hotel' && booking.item.image && (
                   <CardMedia component="img" height="120" image={booking.item.image} alt={booking.item.name} />

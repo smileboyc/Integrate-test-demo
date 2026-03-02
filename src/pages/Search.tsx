@@ -118,7 +118,7 @@ const Search: React.FC = () => {
           ) : (
             <Grid container spacing={3}>
               {hotels.map(hotel => (
-                <Grid item xs={12} sm={6} md={4} key={hotel.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={hotel.id}>
                   <Card>
                     {hotel.image && (
                       <CardMedia component="img" height="140" image={hotel.image} alt={hotel.name} />
@@ -163,7 +163,7 @@ const Search: React.FC = () => {
           ) : (
             <Grid container spacing={3}>
               {flights.map(flight => (
-                <Grid item xs={12} sm={6} md={4} key={flight.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={flight.id}>
                   <Card>
                     {flight.image && (
                       <CardMedia component="img" height="140" image={flight.image} alt={flight.airline} />

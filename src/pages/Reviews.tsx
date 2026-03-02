@@ -139,7 +139,7 @@ const Reviews: React.FC = () => {
               <Typography variant="h6">Reviews</Typography>
               <Grid container spacing={2}>
                 {reviews.map(r => (
-                  <Grid item xs={12} key={r.id}>
+                  <Grid size={{ xs: 12 }} key={r.id}>
                     <Card>
                       <CardContent>
                         <Rating value={r.rating} readOnly />
@@ -191,7 +191,7 @@ const Reviews: React.FC = () => {
               <Typography variant="h6">Reviews</Typography>
               <Grid container spacing={2}>
                 {reviews.map(r => (
-                  <Grid item xs={12} key={r.id}>
+                  <Grid size={{ xs: 12 }} key={r.id}>
                     <Card>
                       <CardContent>
                         <Rating value={r.rating} readOnly />
