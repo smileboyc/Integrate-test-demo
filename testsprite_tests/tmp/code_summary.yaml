@@ -1,0 +1,183 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - React
+  - Vite
+  - MUI (Material-UI)
+  - react-router-dom
+routes:
+  - path: /login
+    file: src/pages/Login.tsx
+    auth_required: false
+    description: User login page
+  - path: /search
+    file: src/pages/Search.tsx
+    auth_required: true
+    description: Search hotels and flights, book from results
+  - path: /booking
+    file: src/pages/Booking.tsx
+    auth_required: true
+    description: Booking page placeholder
+  - path: /reviews
+    file: src/pages/Reviews.tsx
+    auth_required: true
+    description: Submit and view hotel/flight reviews
+  - path: /history
+    file: src/pages/BookingHistory.tsx
+    auth_required: true
+    description: View booking history from localStorage
+  - path: /admin
+    file: src/pages/Admin.tsx
+    auth_required: true
+    description: Admin add/delete hotels and flights
+features:
+  - name: User Login
+    description: Login with email and password (in-memory, test account example@gmail.com / 123456789)
+    files:
+      - src/pages/Login.tsx
+      - src/App.tsx
+    entry_route: /login
+    user_interactions:
+      - Fill email input field
+      - Fill password input field
+      - Click Login button to submit
+      - See error message on invalid credentials
+    api_calls: []
+    auth_required: false
+  - name: Hotel Search and Book
+    description: Search hotels by location and book; booking stored in localStorage
+    files:
+      - src/pages/Search.tsx
+    entry_route: /search
+    user_interactions:
+      - Switch to Hotels tab
+      - Enter location in Location field
+      - See hotel results
+      - Click Book on a hotel card
+      - See success snackbar and optional Write Review
+    api_calls:
+      - method: GET
+        endpoint: /api/hotels
+    auth_required: true
+  - name: Flight Search and Book
+    description: Search flights by from/to and book; booking stored in localStorage
+    files:
+      - src/pages/Search.tsx
+    entry_route: /search
+    user_interactions:
+      - Switch to Flights tab
+      - Enter From and To
+      - See flight results
+      - Click Book on a flight card
+      - See success snackbar
+    api_calls:
+      - method: GET
+        endpoint: /api/flights
+    auth_required: true
+  - name: Submit Hotel Review
+    description: Select hotel, set rating and comment, submit review
+    files:
+      - src/pages/Reviews.tsx
+    entry_route: /reviews
+    user_interactions:
+      - Select hotel from dropdown
+      - Set rating with Rating component
+      - Enter comment
+      - Click Submit Review
+      - See review in list or snackbar
+    api_calls:
+      - method: GET
+        endpoint: /api/hotels
+      - method: GET
+        endpoint: /api/reviews
+      - method: POST
+        endpoint: /api/reviews
+    auth_required: true
+  - name: Submit Flight Review
+    description: Select flight, set rating and comment, submit review
+    files:
+      - src/pages/Reviews.tsx
+    entry_route: /reviews
+    user_interactions:
+      - Switch to Flights tab
+      - Select flight from dropdown
+      - Set rating and comment
+      - Click Submit Review
+    api_calls:
+      - method: GET
+        endpoint: /api/flights
+      - method: GET
+        endpoint: /api/reviews
+      - method: POST
+        endpoint: /api/reviews
+    auth_required: true
+  - name: Booking History
+    description: View past bookings from localStorage
+    files:
+      - src/pages/BookingHistory.tsx
+    entry_route: /history
+    user_interactions:
+      - See loading then list of booking cards with details
+    api_calls: []
+    auth_required: true
+  - name: Admin Add Hotel
+    description: Add new hotel via form; calls API
+    files:
+      - src/pages/Admin.tsx
+    entry_route: /admin
+    user_interactions:
+      - Fill Name, Location, Price (required), Image URL, Description
+      - Click Add Hotel
+      - See hotel in list and snackbar
+    api_calls:
+      - method: GET
+        endpoint: /api/hotels
+      - method: POST
+        endpoint: /api/admin/add
+    auth_required: true
+  - name: Admin Delete Hotel
+    description: Delete hotel from list
+    files:
+      - src/pages/Admin.tsx
+    entry_route: /admin
+    user_interactions:
+      - Click Delete on a hotel card
+      - See snackbar and hotel removed from list
+    api_calls:
+      - method: POST
+        endpoint: /api/admin/delete
+    auth_required: true
+  - name: Admin Add Flight
+    description: Add new flight via form
+    files:
+      - src/pages/Admin.tsx
+    entry_route: /admin
+    user_interactions:
+      - Switch to Flights tab
+      - Fill Airline, From, To, Price (required), Image URL, Description
+      - Click Add Flight
+    api_calls:
+      - method: GET
+        endpoint: /api/flights
+      - method: POST
+        endpoint: /api/admin/add
+    auth_required: true
+  - name: Admin Delete Flight
+    description: Delete flight from list
+    files:
+      - src/pages/Admin.tsx
+    entry_route: /admin
+    user_interactions:
+      - Click Delete on a flight card
+    api_calls:
+      - method: POST
+        endpoint: /api/admin/delete
+    auth_required: true
+known_limitations:
+  - issue: Auth is in-memory only; no backend login API
+    location: src/App.tsx
+    impact: Only test credentials example@gmail.com / 123456789 work
+  - issue: Booking page is placeholder (Coming Soon)
+    location: src/pages/Booking.tsx
+    impact: Actual booking happens on Search page

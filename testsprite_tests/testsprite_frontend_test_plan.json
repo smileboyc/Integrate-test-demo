@@ -1,0 +1,3403 @@
+[
+  {
+    "id": "TC001",
+    "title": "Search hotels by location and book a hotel successfully",
+    "description": "Verifies a user can search hotels by a valid location, book from results, and see a success confirmation.",
+    "category": "Hotel Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Hotels\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Paris\" into the \"Location\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"hotel results\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Book\" button on a hotel card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Booking successful\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Search hotels with a location that has no matches shows a no-results message",
+    "description": "Verifies the hotels search shows a clear no-results state when there are no matching hotels for a location.",
+    "category": "Hotel Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Hotels\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Atlantis\" into the \"Location\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No results\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Search hotels with empty location does not show results and prompts user (validation)",
+    "description": "Verifies the Hotels search does not proceed with an empty location and provides a visible validation or empty-state message.",
+    "category": "Hotel Search and Book",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Hotels\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Press \"Enter\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Location\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Search hotels with leading/trailing spaces in location returns results",
+    "description": "Verifies the Hotels search handles whitespace around the location input and still shows matching results.",
+    "category": "Hotel Search and Book",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Hotels\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"  Paris  \" into the \"Location\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"hotel results\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Booking a hotel shows success snackbar and remains on Search page",
+    "description": "Verifies booking from a hotel card displays a success snackbar and does not navigate away from the Search page (since booking happens on Search).",
+    "category": "Hotel Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Hotels\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Paris\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Book\" button on a hotel card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Booking successful\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "After booking a hotel, booking appears in Booking History",
+    "description": "Verifies a booked hotel is persisted and visible in the Booking History page.",
+    "category": "Hotel Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Hotels\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Paris\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Book\" button on a hotel card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Booking successful\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Booking History\" link in the navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/history\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Paris\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Write Review option is offered after a successful hotel booking (if present)",
+    "description": "Verifies the UI offers a visible \"Write Review\" option after booking when the feature is enabled.",
+    "category": "Hotel Search and Book",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Hotels\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Paris\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Book\" button on a hotel card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Booking successful\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Write Review\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Search flights and book successfully (happy path)",
+    "description": "Verifies a user can search flights by From/To, book a result, and see a success confirmation.",
+    "category": "Flight Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"NYC\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"LAX\" into the \"To\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"flight results\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Book\" button on a flight card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Booking confirmed\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Flight search shows no-results message when there are no matches",
+    "description": "Verifies the Flights tab displays a clear no-results state when a search returns zero flights.",
+    "category": "Flight Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"ZZZ\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"QQQ\" into the \"To\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No results\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Booking a flight shows a success snackbar (UI confirmation)",
+    "description": "Verifies that clicking Book on a flight result triggers a visible success snackbar confirmation.",
+    "category": "Flight Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"SFO\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"SEA\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Book\" button on a flight card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"success snackbar\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Booked flight appears in Booking History",
+    "description": "Verifies that after booking a flight from search results, the booking is visible in the Booking History page.",
+    "category": "Flight Search and Book",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"NYC\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"LAX\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Book\" button on a flight card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Booking confirmed\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"History\" navigation link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/history\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Flight\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Flight results update when changing destination",
+    "description": "Verifies the flight results list updates when the user changes the To field value.",
+    "category": "Flight Search and Book",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"SFO\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"SEA\" into the \"To\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"flight results\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"LAX\" into the \"To\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"flight results\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Flight search is case-insensitive for From/To inputs",
+    "description": "Verifies that using lowercase input still returns results (where matches exist).",
+    "category": "Flight Search and Book",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"nyc\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"lax\" into the \"To\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"flight results\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Entering only From does not show flight results (validation/empty search state)",
+    "description": "Verifies that providing only one search field does not display results and shows a helpful empty/validation state.",
+    "category": "Flight Search and Book",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"NYC\" into the \"From\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Enter\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Entering only To does not show flight results (validation/empty search state)",
+    "description": "Verifies that providing only destination does not display results and shows a helpful empty/validation state.",
+    "category": "Flight Search and Book",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"LAX\" into the \"To\" field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Enter\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Submit a hotel review successfully and see confirmation",
+    "description": "Verifies a user can submit a hotel review with rating and comment and receives visible confirmation (snackbar or list update).",
+    "category": "Submit Hotel Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Select a hotel from the hotel dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Set rating to 4 stars in the rating component"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Great stay, clean rooms.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Submit Review\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Review submitted\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Submitted review appears in the reviews list for the selected hotel",
+    "description": "Verifies that after submitting a review, the new comment is visible in the reviews list (or otherwise confirmed on-screen).",
+    "category": "Submit Hotel Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Select a hotel from the hotel dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Set rating to 5 stars in the rating component"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Amazing service and location.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Submit Review\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Amazing service and location.\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Validation: missing rating shows a visible error snackbar",
+    "description": "Verifies that submitting a review without selecting a rating shows a visible validation error.",
+    "category": "Submit Hotel Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Select a hotel from the hotel dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Nice place.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Submit Review\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Rating is required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Validation: missing comment shows a visible error snackbar",
+    "description": "Verifies that submitting a review without entering a comment shows a visible validation error.",
+    "category": "Submit Hotel Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Select a hotel from the hotel dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Set rating to 3 stars in the rating component"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Submit Review\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Comment is required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Validation: missing hotel selection prevents submission",
+    "description": "Verifies that clicking Submit Review without selecting a hotel shows a visible validation error and does not submit.",
+    "category": "Submit Hotel Review",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Set rating to 4 stars in the rating component"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Decent overall.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Submit Review\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Hotel is required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Error recovery: after validation error, user can correct inputs and submit successfully",
+    "description": "Verifies the user can fix missing fields after an error and successfully submit a review.",
+    "category": "Submit Hotel Review",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Select a hotel from the hotel dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Submit Review\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Rating is required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Set rating to 4 stars in the rating component"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Updated after error, now complete.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Submit Review\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Review submitted\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Keyboard submission: pressing Enter in comment field submits when all fields are valid",
+    "description": "Verifies Enter key can trigger submission from the comment input when hotel, rating, and comment are provided.",
+    "category": "Submit Hotel Review",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Select a hotel from the hotel dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Set rating to 5 stars in the rating component"
+      },
+      {
+        "type": "action",
+        "description": "Click into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Submitting via Enter key.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Press Enter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Review submitted\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC023",
+    "title": "Reviews page loads required UI controls for submitting a review",
+    "description": "Verifies the Reviews page shows the hotel selector, rating component, comment field, and Submit Review button.",
+    "category": "Submit Hotel Review",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Login\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reviews\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Hotel dropdown\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Rating\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Comment\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Submit Review\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC024",
+    "title": "Submit a flight review successfully and see confirmation",
+    "description": "Verifies a user can submit a flight review with rating and comment and gets a visible confirmation.",
+    "category": "Submit Flight Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Flight\" dropdown is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the flight dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select a flight option from the dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the rating component to set a rating (for example, 4 stars)"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Great flight experience, smooth boarding and on-time arrival.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit Review\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Review submitted\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC025",
+    "title": "Submitted flight review appears in the reviews list",
+    "description": "Verifies that after submitting a flight review, the review is visible in the on-page list.",
+    "category": "Submit Flight Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click on the flight dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select a flight option from the dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the rating component to set a rating (for example, 5 stars)"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Comfortable seats and friendly crew.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit Review\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Comfortable seats and friendly crew.\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC026",
+    "title": "Validation error when rating is missing (comment provided)",
+    "description": "Verifies submitting a flight review without a rating shows a visible validation error message.",
+    "category": "Submit Flight Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click on the flight dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select a flight option from the dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Decent flight overall.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit Review\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Rating is required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC027",
+    "title": "Validation error when comment is missing (rating provided)",
+    "description": "Verifies submitting a flight review without a comment shows a visible validation error message.",
+    "category": "Submit Flight Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click on the flight dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select a flight option from the dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the rating component to set a rating (for example, 3 stars)"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit Review\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Comment is required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC028",
+    "title": "Validation error when both rating and comment are missing",
+    "description": "Verifies submitting a flight review with neither rating nor comment shows a visible validation error.",
+    "category": "Submit Flight Review",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click on the flight dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select a flight option from the dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit Review\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC029",
+    "title": "Cannot submit a flight review without selecting a flight",
+    "description": "Verifies the user sees a validation error if they try to submit without choosing a flight from the dropdown.",
+    "category": "Submit Flight Review",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click on the rating component to set a rating (for example, 4 stars)"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Tried to submit without selecting a flight.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit Review\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Select a flight\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC030",
+    "title": "Flight dropdown loads options on the Flights tab",
+    "description": "Verifies the flight selection dropdown is present and shows at least one selectable option.",
+    "category": "Submit Flight Review",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click on the flight dropdown"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Flight option\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC031",
+    "title": "Canceling the rating selection by clearing input is not required; user can adjust rating before submit",
+    "description": "Verifies a user can change the selected rating before submitting and still submit successfully.",
+    "category": "Submit Flight Review",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Reviews\" link in the app navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click on the flight dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select a flight option from the dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click on the rating component to set a rating (for example, 2 stars)"
+      },
+      {
+        "type": "action",
+        "description": "Click on the rating component to change the rating (for example, 4 stars)"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Updated rating after reconsideration.\" into the comment field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit Review\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Review submitted\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC032",
+    "title": "Booking History page URL and heading are correct after navigation",
+    "description": "Verifies that navigating to Booking History lands on the correct route and shows an identifiable page title/heading.",
+    "category": "Booking History",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"History\" navigation item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/history\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"History\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Booking History\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC033",
+    "title": "Booking History remains stable when repeatedly visiting the page during a session",
+    "description": "Verifies that the Booking History page can be opened and revisited without UI breaking and continues to show a consistent state (cards or empty message).",
+    "category": "Booking History",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"History\" navigation item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/history\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Search\" navigation item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"History\" navigation item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify either text \"No bookings\" is visible or at least one booking card element is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC034",
+    "title": "Add a new hotel successfully and see it in the admin list with success snackbar",
+    "description": "Verifies an authenticated admin can add a hotel via the form and receives visible confirmation plus list update.",
+    "category": "Admin Add Hotel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test Hotel Alpha\" into the Name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Austin\" into the Location field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"199\" into the Price field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/hotel-alpha.jpg\" into the Image URL field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Comfortable stay near downtown.\" into the Description field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Add Hotel\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Hotel added\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Test Hotel Alpha\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC035",
+    "title": "Validation: missing price shows an error snackbar and hotel is not added",
+    "description": "Verifies the Price field is required and submission without it shows a visible validation error and does not add the hotel.",
+    "category": "Admin Add Hotel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test Hotel NoPrice\" into the Name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Denver\" into the Location field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/noprice.jpg\" into the Image URL field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Should fail validation due to missing price.\" into the Description field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Add Hotel\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price is required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Test Hotel NoPrice\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC036",
+    "title": "Validation: non-numeric price is rejected with visible error feedback",
+    "description": "Verifies the form rejects a non-numeric price value and shows visible error feedback without adding the hotel.",
+    "category": "Admin Add Hotel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test Hotel BadPrice\" into the Name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Seattle\" into the Location field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"abc\" into the Price field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/badprice.jpg\" into the Image URL field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Invalid price format test.\" into the Description field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Add Hotel\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Invalid\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Test Hotel BadPrice\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC037",
+    "title": "Validation: empty name shows error feedback and prevents submission",
+    "description": "Verifies the hotel name is required and the user cannot add a hotel without a name.",
+    "category": "Admin Add Hotel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"\" into the Name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Chicago\" into the Location field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"150\" into the Price field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/noname.jpg\" into the Image URL field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Missing name should block add.\" into the Description field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Add Hotel\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Name\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC038",
+    "title": "Validation: empty location shows error feedback and prevents submission",
+    "description": "Verifies the location is required and the user cannot add a hotel without a location.",
+    "category": "Admin Add Hotel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test Hotel NoLocation\" into the Name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"\" into the Location field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"180\" into the Price field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/nolocation.jpg\" into the Image URL field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Missing location should block add.\" into the Description field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Add Hotel\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Location\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC039",
+    "title": "Successful add with optional fields left blank still adds hotel and shows success snackbar",
+    "description": "Verifies the user can add a hotel when Image URL and Description are blank (if optional) and still sees success plus list update.",
+    "category": "Admin Add Hotel",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test Hotel Minimal\" into the Name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Portland\" into the Location field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"210\" into the Price field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"\" into the Image URL field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"\" into the Description field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Add Hotel\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Hotel added\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Test Hotel Minimal\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC040",
+    "title": "After adding a hotel, refresh the admin list view via in-app navigation and confirm it remains visible",
+    "description": "Verifies the added hotel remains present when leaving the Admin page and returning via navigation (persistence within session).",
+    "category": "Admin Add Hotel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test Hotel Persist\" into the Name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"San Diego\" into the Location field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"230\" into the Price field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/persist.jpg\" into the Image URL field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Used to verify list refresh via navigation.\" into the Description field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Add Hotel\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Hotel added\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Search\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Admin\" in the app navigation/menu"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Test Hotel Persist\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC041",
+    "title": "Delete an existing hotel and verify success snackbar and removal",
+    "description": "Verifies an admin can delete a hotel and the UI shows a success confirmation and removes the hotel from the list.",
+    "category": "Admin Delete Hotel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" navigation option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a hotel card is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC042",
+    "title": "Confirm delete action shows snackbar confirmation",
+    "description": "Verifies clicking Delete on a hotel card shows a visible confirmation snackbar after deletion.",
+    "category": "Admin Delete Hotel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" navigation option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a hotel card is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on a hotel card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a snackbar notification is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC043",
+    "title": "Delete removes the correct hotel from the visible list",
+    "description": "Verifies the specific hotel name on the deleted card is no longer visible in the admin hotel list after deletion.",
+    "category": "Admin Delete Hotel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" navigation option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a hotel card is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the first visible hotel card name text is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on that same hotel card"
+      }
+    ]
+  },
+  {
+    "id": "TC044",
+    "title": "After deletion, hotel count decreases or list updates",
+    "description": "Verifies the hotel list visually updates after deletion (card disappears and list reflows).",
+    "category": "Admin Delete Hotel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" navigation option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify at least two hotel cards are visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on one of the hotel cards"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the deleted hotel card is no longer visible"
+      }
+    ]
+  },
+  {
+    "id": "TC045",
+    "title": "Delete last remaining hotel card (edge case) shows empty-state behavior",
+    "description": "Verifies deleting the final hotel results in an updated UI (no hotel cards shown and/or an empty-state message is visible).",
+    "category": "Admin Delete Hotel",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" navigation option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the admin page hotel list area is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on a hotel card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no hotel cards are visible"
+      }
+    ]
+  },
+  {
+    "id": "TC046",
+    "title": "Snackbar message indicates deletion success",
+    "description": "Verifies the snackbar contains success-oriented deletion text after deleting a hotel.",
+    "category": "Admin Delete Hotel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" navigation option"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on a hotel card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"deleted\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC047",
+    "title": "Add a new flight successfully and see it listed with success snackbar",
+    "description": "Verifies an admin can add a flight with all fields completed and sees a success message and the new flight in the list.",
+    "category": "Admin Add Flight",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      }
+    ]
+  },
+  {
+    "id": "TC048",
+    "title": "Submit new flight form with all fields filled",
+    "description": "Verifies the admin flights form accepts valid input across all fields and allows submission.",
+    "category": "Admin Add Flight",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test Airline 101\" into the \"Airline\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"SFO\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"LAX\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"199\" into the \"Price\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/flight.jpg\" into the \"Image URL\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Direct flight for testing\" into the \"Description\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add Flight\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Flight added\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC049",
+    "title": "Newly added flight appears in the admin flights list after submission",
+    "description": "Verifies the flight list updates to include the newly added flight details after adding a flight.",
+    "category": "Admin Add Flight",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"ListCheck Air\" into the \"Airline\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"NYC\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"BOS\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"89\" into the \"Price\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/listcheck.jpg\" into the \"Image URL\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Short hop for list verification\" into the \"Description\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add Flight\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"ListCheck Air\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"NYC\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"BOS\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC050",
+    "title": "Price required validation: leave Price empty and see validation snackbar",
+    "description": "Verifies the add flight form blocks submission when Price is missing and shows a validation error snackbar.",
+    "category": "Admin Add Flight",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"NoPrice Air\" into the \"Airline\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"SEA\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"PDX\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add Flight\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC051",
+    "title": "Do not add flight when Price is missing: ensure flight is not listed",
+    "description": "Verifies that a flight is not added to the admin list when submission fails due to missing Price.",
+    "category": "Admin Add Flight",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"ShouldNotExist Air\" into the \"Airline\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"MIA\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"MCO\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add Flight\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"ShouldNotExist Air\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC052",
+    "title": "Numeric Price input: non-numeric Price is rejected or shows validation feedback",
+    "description": "Verifies the Price field enforces numeric input or the form shows visible validation feedback when non-numeric text is entered.",
+    "category": "Admin Add Flight",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"BadPrice Air\" into the \"Airline\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"DEN\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"PHX\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"one hundred\" into the \"Price\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add Flight\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"invalid\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC053",
+    "title": "Form remains usable after a validation error and succeeds on retry",
+    "description": "Verifies the admin can correct a missing Price after seeing an error and then successfully add the flight.",
+    "category": "Admin Add Flight",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Retry Air\" into the \"Airline\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"AUS\" into the \"From\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"IAH\" into the \"To\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add Flight\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"59\" into the \"Price\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Add Flight\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Flight added\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC054",
+    "title": "Flights tab shows the Add Flight form fields",
+    "description": "Verifies the flights admin UI renders the expected form fields needed to add a flight.",
+    "category": "Admin Add Flight",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Admin\" link or menu item"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Flights\" tab"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Airline\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"From\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"To\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Price\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Image URL\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Description\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC055",
+    "title": "Delete a flight from the Flights tab and see confirmation plus removal",
+    "description": "Verifies an admin can delete an existing flight and the UI confirms deletion and removes the flight from the list.",
+    "category": "Admin Delete Flight",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on a visible flight card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"deleted\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC056",
+    "title": "Deleted flight is removed from the Flights list after confirmation",
+    "description": "Verifies that after deleting a flight, the deleted flight card no longer appears in the flights list.",
+    "category": "Admin Delete Flight",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on a visible flight card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the deleted flight card is not visible in the list"
+      }
+    ]
+  },
+  {
+    "id": "TC057",
+    "title": "Delete a flight when the list is scrolled (off-screen items)",
+    "description": "Verifies delete works for flights further down the list and still shows a deletion confirmation.",
+    "category": "Admin Delete Flight",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the flights list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on a visible flight card"
+      }
+    ]
+  },
+  {
+    "id": "TC058",
+    "title": "Delete the last visible flight card in the list",
+    "description": "Verifies deleting a flight at the end of the currently visible list updates the UI cleanly without leaving an empty card.",
+    "category": "Admin Delete Flight",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the flights list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on the last visible flight card"
+      }
+    ]
+  },
+  {
+    "id": "TC059",
+    "title": "Delete one flight and verify other flight cards remain visible",
+    "description": "Verifies deleting one flight does not remove or hide other flights from the list.",
+    "category": "Admin Delete Flight",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Flights\" tab"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on a visible flight card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify at least one other flight card is visible in the list"
+      }
+    ]
+  },
+  {
+    "id": "TC060",
+    "title": "Authenticated user can open /booking and sees Coming Soon message",
+    "description": "Verifies the placeholder booking page loads for a logged-in user and displays the Coming Soon message.",
+    "category": "Booking Page (Placeholder)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Booking\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/booking\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coming Soon\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC061",
+    "title": "Booking page placeholder is visible and contains no actionable booking controls",
+    "description": "Verifies the /booking page communicates it is not functional by showing Coming Soon and not exposing booking submission actions.",
+    "category": "Booking Page (Placeholder)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Booking\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coming Soon\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Book Now\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC062",
+    "title": "Attempting to interact on /booking does not create a booking in history",
+    "description": "Verifies no booking is performed from the placeholder page by checking booking history does not show a new entry after visiting /booking.",
+    "category": "Booking Page (Placeholder)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Booking\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coming Soon\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Booking History\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/history\""
+      }
+    ]
+  },
+  {
+    "id": "TC063",
+    "title": "Booking page remains stable on refresh-like re-entry via navigation",
+    "description": "Verifies that leaving and re-entering the Booking page via UI navigation still shows the placeholder message consistently.",
+    "category": "Booking Page (Placeholder)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Booking\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coming Soon\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Search\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Booking\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coming Soon\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC064",
+    "title": "Booking placeholder page does not expose admin inventory actions",
+    "description": "Verifies the booking placeholder page is limited in scope and does not include admin-like inventory management controls.",
+    "category": "Booking Page (Placeholder)",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Booking\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coming Soon\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add Hotel\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC065",
+    "title": "Booking placeholder page provides clear status even when reached late in a session",
+    "description": "Verifies the placeholder message is still visible after visiting other authenticated pages first.",
+    "category": "Booking Page (Placeholder)",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email/username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/search\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Reviews\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/reviews\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Booking\" navigation link/menu item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/booking\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Coming Soon\" is visible"
+      }
+    ]
+  }
+]
